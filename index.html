@@ -13,29 +13,24 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>Happy birthday</title>
 	</head>
 	<body>
-		<audio id="bg-music" autoplay hidden>
-		  <source src="music/song.mp3" type="audio/mpeg">
-		  Trình duyệt của bạn không hỗ trợ phát nhạc.
-		</audio>
-		<button onclick="toggleMusic()">Tắt nhạc 127631928739</button>
-		<script>
-	        const audio = document.getElementById("bg-music");
-	        const button = document.querySelector("button");
-
-	        function toggleMusic() {
-	            if (audio.paused) {
-	                audio.play();
-	                button.textContent = "Tắt nhạc";
-	            } else {
-	                audio.pause();
-	                button.textContent = "Bật nhạc";
-	            }
-	        }
-	    </script>
 		<div class="container">
+			<audio id="bg-music" autoplay hidden>
+			  	<source src="music/Happy_Birthday_to_You.mp3" type="audio/mpeg">
+			  	Trình duyệt của bạn không hỗ trợ phát nhạc.
+			</audio>
+			<div class="wrapper">
+			  <button id="showBtn">
+			    Em ấn vào đây nha <3
+			    <span></span>
+			    <span></span>
+			    <span></span>
+			    <span></span>
+			  </button>
+			</div>
 			<div class="boxcontainer">
 				<div class="image">
 					<img src="flag.png" alt="" />
@@ -111,20 +106,13 @@
 						<div class="card2-content">
 							<h3>Gửi em!</h3>
 							<h2>
-								Hôm nay là một ngày đặc biệt đối với một người đặc biệt nì. Chúc
-								e có một ngày sinh nhật thật ý nghĩa, vui vẻ vẻ, hạnh phúc bên
-								gia đình và bạn bè. Chúc e sang tuổi mới lun lun vui vẻ, phải
-								lun lun vui tươi không cần tưới nháaaaa hahah, ngày càng xưn đẹp
-								hơn những năm khác nì gấp mũ n lần lun cho ae cây xoài hahaha ,
-								học giỏi nì nhưng mà học vẫn phải chú ý giữ gìn sức khỏe em nhé
-								và đặc bịt sớm có bồ như em mong muốn nháaaaa:3 . Tuy a không ở
-								gần em và có những món quà ý nghĩa đối với em nhưng a vẫn lun
-								mong muốn những điều tốt đẹp đến với em. Anh chỉ biết dùng vẻ
-								đẹp của IT làm quà tặng em tuy chỉ là 1 giao diện ko phải là 1
-								món quà vật chất nhưng a mong muốn rằng nó sẽ là 1 món quà ý
-								nghĩa, 1 món quà tinh thần nào đó trong ngày đặc biệt của em. Và
-								cuối cùng a chúc cô gái đặc biệt sinh nhật vui vẻ nhaaaaaaaaaa.
-								Chúc em tất cả những điều tốt đẹp nhấtttttt nhéeeeeeee hihi^^
+								Hôm nay là một ngày đặc biệt đối với một người đặc biệt. Đây là lần đầu "anh" chúc mừng sinh nhật "em" nhỉ :)))<br>
+								Chúc Em tuổi mới luôn tràn ngập niềm vui và hạnh phúc, mọi dự định của em sẽ thành công suôn sẻ.<br>
+								Chúc Em đoạn đường phía trước luôn mỉm cười thật tươi.<br>
+								Chúc Em mọi điều tốt đẹp nhất.<br>
+								Gửi mọi điều tốt đẹp nhất đến em...<br>
+								Anh sẽ luôn dõi theo em<br>
+								P/s: lúc nào về nhớ gọi anh nhé!
 							</h2>
 							<div class="imageCute2">
 								<img src="cute2.png" alt="" />
@@ -135,6 +123,17 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+		  	const audio = $('#bg-music');
+		    $( "#showBtn" ).click(function() {
+		    	audio.muted = false;
+				audio.get(0).play();
+			  	$(this).parent().next().css("display", "flex");
+			  	$(this).parent().hide();
+			});
+		});
+    </script>
 	<script>
 		document.addEventListener('mousemove', function (e) {
 			let body = document.querySelector('body');

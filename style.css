@@ -22,17 +22,135 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.container .boxcontainer{
-    width: 700px;
-    height: 450px;
+.wrapper{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height:auto;
+}
+button{
+    width:400px;
+    height:100px;
+    border-radius: 5px;
+    background: linear-gradient(to left top, #008000 50%, #008000 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    font-family: 'Lato';
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
     position: relative;
-    display: flex;
+    padding: 0px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+button span{
+    position: absolute;
+    display: block;
+}
+button span:nth-child(1){
+    height: 3px;
+    width:200px;
+    top:0px;
+    left:-200px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+button span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+button span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+button span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+button:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.3);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+button:hover span{
+    animation-play-state: paused;
+}
+.container .boxcontainer{
+    display: none;
+    width: 1000px;
+    height: 650px;
+    position: relative;
     flex-direction: column;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: -5px -5px 15px rgba(255, 255, 255),
                 5px 5px 15px rgb(0, 0, 0, 0.5);
-    background-image: radial-gradient(circle farthest-corner at center, #ffe0ee 0%, #ffd3ee 100%);
+    background-image: radial-gradient(circle farthest-corner at center, #008000 0%, #008000 100%);
     animation: bgr 4s forwards;
     transition: 1s;
 }
@@ -417,17 +535,16 @@ body{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    width: 60px;
-    font-size: 9px;
+    font-size: 16px;
     align-items: center;
     z-index: 100000;
 }
 .container .cloud:last-child::before{
     position: absolute;
-    content: 'hê sờ lô, hơ sờ ly ly';
+    content: 'Chúc mừng sinh nhật em <3';
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    font-size: 9px;
+    font-size: 16px;
     align-items: center;
     z-index: 100000;
 }
@@ -453,7 +570,7 @@ body{
     }
 }
 .container .cloud > img{
-    width: 100px;
+    width: 250px;
     filter: drop-shadow(1px 4px 0px rgb(188, 188, 188));
 }
 .container .box-firework{
@@ -867,13 +984,13 @@ span{
     opacity: 0;
     visibility: hidden;
     animation: envelope 1s forwards;
-    animation-delay: 11.5s;
+    animation-delay: 9.5s;
     z-index: 100000000;
 }
 .container .mail .fa-envelope{
     position: absolute;
-    margin-top: 50px;
-    font-size: 40px;
+    margin-top: 0;
+    font-size: 125px;
     color: red;
     cursor: pointer;
     z-index: 1000000;
@@ -917,8 +1034,8 @@ span{
 .container .mail .fa-envelope::after{
     position: absolute;
     content: '';
-    width: 55px;
-    height: 45px;
+    width: 110px;
+    height: 70px;
     background: white;
     z-index: -1;
     border-radius: 10px;
@@ -948,7 +1065,7 @@ span{
 }
 .container .cute1::after{
     position: absolute;
-    content: 'Ngạc nhiên chưa "girl especially"';
+    content: 'Ngạc nhiên chưa';
     font-family: 'Roboto', sans-serif;
     text-align: center;
     padding: 10px;
